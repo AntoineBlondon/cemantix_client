@@ -38,6 +38,8 @@ function guess_page() {
         </div>
     `);
 
+    
+
     document.getElementById('guess-input').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             submit_guess();
