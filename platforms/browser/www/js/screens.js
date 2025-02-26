@@ -30,7 +30,7 @@ function guess_page() {
                 <div class="word-guess" id="example-guess">
                     <span class="word">Mot</span>
                     <span class="distance">Distance</span>
-                    <span class="closer-count">+ P  roches</span>
+                    <span class="closer-count">+ Proches</span>
                 </div>
             </div>
             <div id="guesses">
