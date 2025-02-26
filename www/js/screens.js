@@ -28,9 +28,9 @@ function guess_page() {
             <button onclick="submit_guess()">Envoyer</button>
             <div id="example">
                 <div class="word-guess" id="example-guess">
-                    <span class="word">Le mot</span>
+                    <span class="word">Mot</span>
                     <span class="distance">Distance</span>
-                    <span class="closer-count">Mots + proches</span>
+                    <span class="closer-count">+ P  roches</span>
                 </div>
             </div>
             <div id="guesses">
