@@ -20,51 +20,47 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
 
-const BASE_URL = 'http://127.0.0.1:5000';
+const BASE_URL = 'https://kggmantix.pythonanywhere.com';
 
 
 document.addEventListener('deviceready', onDeviceReady, false);
 
+cordova.plugin.http.setSSLCertMode('nocheck');
+
+
 function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+    
     guess_page();
 }
 
 
 
 async function get_todays_word() {
-
-    cordova.plugin.http.setDataSerializer('json'); // Set the serializer to JSON
-    cordova.plugin.http.sendRequest(`${BASE_URL}/daily-random-word`, {
-        method: 'POST',
+    fetch(`${BASE_URL}/daily-random-word`, {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json' // Explicitly set the Content-Type header
-        },
-        data: {},
-    }, response => {
-        let word = JSON.parse(response.data).daily_random_word;
-        console.log('word:', word);
-        update_word(word);
-        
-    }, response => {
-        console.error('Failed to fetch daily word: ', response.error);
-    });
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("word:", data.daily_random_word);
+        update_word(data.daily_random_word);
+    })
+    .catch(error => console.error("Failed to fetch daily word: ", error));
 }
-
 async function send_guess(word) {
-    cordova.plugin.http.setDataSerializer('json'); // Set the serializer to JSON
-    cordova.plugin.http.sendRequest(`${BASE_URL}/guess`, {
-        method: 'POST',
+    fetch(`${BASE_URL}/guess`, {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json' // Explicitly set the Content-Type header
+            "Content-Type": "application/json"
         },
-        data: {
-            guess: word
-        },
-    }, response => {
-        update_guesses_with(JSON.parse(response.data));
-        
-    }, response => {
-        console.error('Failed to guess: ', response.error);
-    });
+        body: JSON.stringify({ guess: word })
+    })
+    .then(response => response.json())
+    .then(data => {
+        update_guesses_with(data);
+    })
+    .catch(error => console.error("Failed to guess: ", error));
 }
