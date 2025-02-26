@@ -107,8 +107,21 @@ function guess_already_made(guess) {
 
 function update_guesses_with(guess) {
     if (guess_already_made(guess)) {
+        select_guess(guess.guess);
         return;
     }
     add_guess(guess);
     store_new_guess(guess);
+    select_guess(guess.guess);
+}
+
+function select_guess(guess) {
+    // Adds the class 'selected' to the selected guess
+    let guesses = document.getElementById('guesses').children;
+    for (let i = 0; i < guesses.length; i++) {
+        guesses[i].classList.remove('selected');
+        if (guesses[i].querySelector('.word').textContent === guess) {
+            guesses[i].classList.add('selected');
+        }
+    }
 }

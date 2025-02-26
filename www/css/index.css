@@ -142,6 +142,12 @@
     gap: 10px; /* Adds space between each guess */
 }
 
+#example {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between each guess */
+}
+
 .word-guess {
     display: flex;
     justify-content: space-between; /* Aligns items evenly */
@@ -165,4 +171,15 @@
 /* If you want the last column (percentage) to be right-aligned */
 .word-guess .percentage {
     text-align: right;
+}
+
+
+#example-guess {
+    border-radius: 0;
+    border-bottom: white 1px solid;
+}
+
+.selected {
+    background-color: #5FA8D3;
+    color: #392F5A;
 }

@@ -25,7 +25,14 @@ function guess_page() {
             <h1>Le mot</h1>
             <div id="guess-word"></div>
             <input type="text" id="guess-input" placeholder="Enter your guess">
-            <button onclick="submit_guess()">Submit</button>
+            <button onclick="submit_guess()">Envoyer</button>
+            <div id="example">
+                <div class="word-guess" id="example-guess">
+                    <span class="word">Le mot</span>
+                    <span class="distance">Distance</span>
+                    <span class="closer-count">Mots + proches</span>
+                </div>
+            </div>
             <div id="guesses">
             </div>
         </div>
