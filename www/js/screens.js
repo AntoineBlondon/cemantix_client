@@ -24,8 +24,11 @@ function guess_page() {
         <div id="guess-page">
             <h1>Le mot</h1>
             <div id="guess-word"></div>
-            <input type="text" id="guess-input" placeholder="Enter your guess">
-            <button onclick="submit_guess()">Envoyer</button>
+            <input class="input" type="text" id="guess-input" placeholder="Essayer un mot..."></input>
+            <button class="input" id="button-input">
+            <span>Envoyer</span>
+            </button>
+
             <div id="example">
                 <div class="word-guess" id="example-guess">
                     <span class="word">Mot</span>
@@ -39,13 +42,26 @@ function guess_page() {
     `);
 
     
+    let guess_input = document.getElementById('guess-input');
+    let button_input = document.getElementById('button-input');
 
-    document.getElementById('guess-input').addEventListener('keydown', function(event) {
+    guess_input.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             submit_guess();
             this.value = '';
         }
     });
+    button_input.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            submit_guess();
+            guess_input.value = '';
+        }
+    });
+    button_input.addEventListener('click', function(event) {
+        submit_guess();
+        guess_input.value = '';
+    });
+
 
     if (is_new_day()) {
         store_day();

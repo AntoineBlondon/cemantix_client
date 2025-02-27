@@ -146,13 +146,15 @@
     display: flex;
     flex-direction: column;
     gap: 10px; /* Adds space between each guess */
+    margin-top: .5rem;
+    margin-bottom: .5rem;
 }
 
 .word-guess {
     display: flex;
     justify-content: space-between; /* Aligns items evenly */
     align-items: center; /* Centers items vertically */
-    padding: 8px;
+    padding: 6px;
     border-radius: 5px;
     width: 100%;
 }

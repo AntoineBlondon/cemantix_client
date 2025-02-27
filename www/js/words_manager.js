@@ -5,7 +5,7 @@ function update_word(word) {
 function submit_guess() {
     let guess = document.getElementById('guess-input').value;
     console.log('guess:', guess);
-    guess.value = '';
+    document.getElementById('guess-input').value = '';
     send_guess(guess);
 
 }
