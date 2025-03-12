@@ -4,6 +4,10 @@ function update_word(word) {
 
 function submit_guess() {
     let guess = document.getElementById('guess-input').value;
+    if (guess == null || guess === '') {
+        return;
+    }
+
     console.log('guess:', guess);
     document.getElementById('guess-input').value = '';
     send_guess(guess);
