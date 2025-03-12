@@ -111,7 +111,7 @@ function guess_already_made(guess) {
 
 
 function update_guesses_with(guess) {
-    if (guess.guess == "undefined") {
+    if (guess.guess == "undefined" || guess.guess == null) {
         set_error(true);
         return;
     }
