@@ -10,6 +10,7 @@ function submit_guess() {
 
     console.log('guess:', guess);
     document.getElementById('guess-input').value = '';
+    set_error(false);
     send_guess(guess);
 
 }
@@ -109,8 +110,12 @@ function guess_already_made(guess) {
 
 
 
-
 function update_guesses_with(guess) {
+    if (guess.guess == "undefined") {
+        set_error(true);
+        return;
+    }
+    set_error(false);
     if (guess_already_made(guess)) {
         select_guess(guess.guess);
         return;
@@ -129,4 +134,10 @@ function select_guess(guess) {
             guesses[i].classList.add('selected');
         }
     }
+}
+
+
+function set_error(value) {
+    let error_element = document.getElementById('error-div');
+    error_element.style.display = value ? 'block' : 'none';
 }

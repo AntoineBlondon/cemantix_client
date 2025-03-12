@@ -62,5 +62,8 @@ async function send_guess(word) {
     .then(data => {
         update_guesses_with(data);
     })
-    .catch(error => console.error("Failed to guess: ", error));
+    .catch(error => {
+        console.error("Failed to send guess: ", error);
+        send_error();
+    });
 }
