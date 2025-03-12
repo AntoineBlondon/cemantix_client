@@ -27,8 +27,8 @@ function guess_page() {
             <input class="input" type="text" id="guess-input" placeholder="Essayer un mot..."></input>
             <button class="input" id="button-input">
             <span>Envoyer</span>
-            <div id="error-div" style="display: none;">Erreur</div>
             </button>
+            <div id="error-div" style="display: none;">Erreur</div>
 
             <div id="example">
                 <div class="word-guess" id="example-guess">
